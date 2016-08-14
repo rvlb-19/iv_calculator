@@ -30,9 +30,7 @@ Cada *Pokémon* do jogo possui um nível não-informado de forma explícita. Exi
 
 O valor de _Stardust_ necessário para usar um _Power-Up_ está atrelado a uma faixa de _levels_, que é determinada automaticamente pela calculadora quando o campo é preenchido.
 
-Ocorre que as partes inteiras dos níveis da mesma faixa de _Stardust_ sempre possuirão faixas diferentes de HP e/ou CP. Logo, uma das escolhas **sempre** será inválida, sendo a outra a correta.
-
-Basta, então, determinar se usaremos a forma inteira (x) ou a forma intermediária (x.5) do nível para efetuar o cálculo.
+Apenas duas opções de _levels_ serão válidas, uma de nível inteiro e outra de nível decimal. Basta, então, optar pela opção correta, baseando-se na quantidade de _Power-Ups_ que foi utilizada.
 
 #### Para que serve o CP
 O CP é um valor utilizado para determinar o quão forte um _Pokémon_ é. Efetivamente, porém o que realmente importa são os valores utilizados para calcular o CP: os atributos _Stamina_, _Attack_ e _Defense_.
