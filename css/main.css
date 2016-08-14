@@ -1,0 +1,70 @@
+#container-site{
+	width: 22%;
+}
+
+*:focus{
+	outline: none;
+}
+
+#header p{
+	font-size: 15px;
+	font-weight: bold;
+	text-align: center;
+	margin-bottom: 0;
+	margin-top: 20px;
+}
+
+.separator{
+	padding-top: 5px;
+}
+
+.pkmn-form{
+	width: 100%;
+}
+
+.pkmn-form > .row{
+	margin: 0;
+}
+
+.pkmn-form > .row > .col-md-3{
+	padding: 0;
+}
+
+#pkmn-list{
+	width: 100%;
+}
+
+.pkmn-form > .row > .col-md-3 > input{
+	width: 100%;
+	border-radius: 50px;
+	font-size: 10px;
+	padding-left: 5px;
+	border-width: 1px;
+}
+
+#level-list{
+	width: 100%;
+}
+
+#calc-btn{
+	font-size: 12px;
+	width: 50%;
+	margin-left: 25%;
+	margin-right: 25%;
+	border-color: transparent;
+	border-radius: 50px;
+	box-shadow: 2px 2px 2px #888888;
+}
+
+#results p{
+	font-size: 11px;
+	text-align: center;
+	margin-bottom: 0px;
+	margin-top: 5px;
+}
+
+.disclaimer > p{
+	margin-top: 10px;
+	font-size: 7px;
+	text-align: center;
+}

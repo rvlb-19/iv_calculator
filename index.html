@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8"/>
+		<title>
+			IV CALCULATOR
+		</title>
+		<link rel="stylesheet" type="text/css" href="css/main.css">
+		<link rel="stylesheet" type="text/css" href="css/bootstrap.css">
+		<link rel="stylesheet" type="text/css" href="css/bootstrap-responsive.css">
+		<link rel="stylesheet" type="text/css" href="css/bootstrap-theme.css">
+	</head>
+	<body>
+		<div class="container-fluid" id="container-site">
+			<div id="header">
+				<p>IV CALCULATOR</p>
+			</div>
+			<div class="pkmn-form">
+				<select id="pkmn-list">
+					<option value="0">Escolha um Pokémon</option>
+				</select>
+				<div class="separator"></div>
+				<div class="row">
+					<div class="col-md-3">
+						<input type="text" id="pkmn-hp" placeholder="HP">
+					</div>
+					<div class="col-md-3">
+						<input type="text" id="pkmn-cp" placeholder="CP">
+					</div>
+					<div class="col-md-3">
+						<input type="text" id="pkmn-dust" placeholder="Stardust">
+					</div>
+					<div class="col-md-3">
+						<select id="level-list">
+							<option value="0">Level</option>
+						</select>
+					</div>
+				</div>
+			</div>
+			<div class="separator"></div>
+			<input type="button" id="calc-btn" value="Calcular">
+		</div>
+		<div class="separator"></div>
+		<div id="results"></div>
+		<div class="disclaimer">
+			<p>Pokémon and all respective names are ™ and © of Nintendo (1996-2016)</p>
+		</div>
+	</body>
+	<script type="text/javascript" src="js/script.js"></script>
+</html>
