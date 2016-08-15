@@ -25,7 +25,7 @@ Após o preenchimento das informações necessárias, serão calculadas as combi
 #### Determinando o _Level_
 Cada *Pokémon* do jogo possui um nível não-informado de forma explícita. Existem algumas formas de descobrir esse valor:
 * Um _Pokémon_ quando obtido (via captura ou ovo), sempre terá um nível inteiro (1,2,3, etc);
-* Um _Pokémon_ nunca poderá ultrapassar o nível atual do treinador em mais de 1.5 (ainda não confirmado);
+* Um _Pokémon_ nunca poderá ultrapassar o nível atual do treinador em mais de 1.5;
 * Um _Power-Up_ aumenta o nível do _Pokémon_ em 0.5 nível;
 
 O valor de _Stardust_ necessário para usar um _Power-Up_ está atrelado a uma faixa de _levels_, que é determinada automaticamente pela calculadora quando o campo é preenchido.

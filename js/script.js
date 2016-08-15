@@ -730,40 +730,27 @@ function calculate() {
 	lvls = document.getElementById('level-list');
 	cpm = lvlToCpm[lvls.options[lvls.selectedIndex].innerHTML]
 	if(pkmn != null && hp != null && cp != null && cpm != null) {
-		var ivMin={"stamina" : 0, "attack" : 0, "defense" : 0};
-		var ivMax={"stamina" : 15, "attack" : 15, "defense" : 15};
-		var minHP=calculateHP(pkmn["base"],ivMin,cpm), maxHP=calculateHP(pkmn["base"],ivMax,cpm);
-		var minCP=calculateCP(pkmn["base"],ivMin,cpm), maxCP=calculateCP(pkmn["base"],ivMax,cpm);
-		if(hp < minHP || hp > maxHP) {
-			var p = document.createElement("p");
-			p.innerHTML = "HP fora dos limites normais!";
-			results.appendChild(p);
-		} else if(cp < minCP || cp > maxCP) {
-			var p = document.createElement("p");
-			p.innerHTML = "CP fora dos limites normais!";
-			results.appendChild(p);
-		} else {
-			var combs=[];
-			for(var s=0 ; s<=15 ; s++) {
+		var combs=[];
+		for(var s=0 ; s<=15 ; s++) {
+			if(hp==calculateHP(pkmn["base"],{"stamina" : s},cpm)) {
 				for(var a=0 ; a<=15 ; a++) {
 					for(var d=0 ; d<=15 ; d++) {
 						var ivs={"stamina" : s, "attack" : a, "defense" : d};
-						var calcHP=calculateHP(pkmn["base"],ivs,cpm), calcCP=calculateCP(pkmn["base"],ivs,cpm);
-						if(hp==calcHP && cp==calcCP){
+						if(cp==calculateCP(pkmn["base"],ivs,cpm)){
 							combs.push(ivs);
 						}
 					}
 				}
 			}
+		}
+		var p = document.createElement("p");
+		p.innerHTML = "<strong> COMBINAÇÕES POSSÍVEIS: </strong>"+combs.length;
+		results.appendChild(p);
+		for(var i=0 ; i<combs.length ; i++) {
+			var comb = JSON.stringify(combs[i],null,2);
 			var p = document.createElement("p");
-			p.innerHTML = "<strong> COMBINAÇÕES POSSÍVEIS: </strong>"+combs.length;
+			p.innerHTML = (((comb.replace(/"/g,"")).replace('{',"")).replace('}',"")).toUpperCase();
 			results.appendChild(p);
-			for(var i=0 ; i<combs.length ; i++) {
-				var comb = JSON.stringify(combs[i],null,2);
-				var p = document.createElement("p");
-				p.innerHTML = (((comb.replace(/"/g,"")).replace('{',"")).replace('}',"")).toUpperCase();
-				results.appendChild(p);
-			}
 		}
 	} else {
 		var p = document.createElement("p");
