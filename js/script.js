@@ -384,6 +384,204 @@ var pkmnList = [
 		}
 	},
 	{
+		"dex" : 32,
+		"name" : "Nidoran♂",
+		"base" : {
+			"stamina" : 92,
+			"attack" : 110,
+			"defense" : 94
+		}
+	},
+	{
+		"dex" : 33,
+		"name" : "Nidorino",
+		"base" : {
+			"stamina" : 122,
+			"attack" : 142,
+			"defense" : 128
+		}
+	},
+	{
+		"dex" : 34,
+		"name" : "Nidoking",
+		"base" : {
+			"stamina" : 162,
+			"attack" : 204,
+			"defense" : 170
+		}
+	},
+	{
+		"dex" : 35,
+		"name" : "Clefairy",
+		"base" : {
+			"stamina" : 140,
+			"attack" : 116,
+			"defense" : 124
+		}
+	},
+	{
+		"dex" : 36,
+		"name" : "Clefable",
+		"base" : {
+			"stamina" : 190,
+			"attack" : 178,
+			"defense" : 178
+		}
+	},
+	{
+		"dex" : 37,
+		"name" : "Vulpix",
+		"base" : {
+			"stamina" : 76,
+			"attack" : 106,
+			"defense" : 118
+		}
+	},
+	{
+		"dex" : 38,
+		"name" : "Ninetales",
+		"base" : {
+			"stamina" : 146,
+			"attack" : 176,
+			"defense" : 194
+		}
+	},
+	{
+		"dex" : 39,
+		"name" : "Jigglypuff",
+		"base" : {
+			"stamina" : 230,
+			"attack" : 98,
+			"defense" : 54
+		}
+	},
+	{
+		"dex" : 40,
+		"name" : "Wigglytuff",
+		"base" : {
+			"stamina" : 280,
+			"attack" : 168,
+			"defense" : 108
+		}
+	},
+	{
+		"dex" : 41,
+		"name" : "Zubat",
+		"base" : {
+			"stamina" : 80,
+			"attack" : 88,
+			"defense" : 90
+		}
+	},
+	{
+		"dex" : 42,
+		"name" : "Golbat",
+		"base" : {
+			"stamina" : 150,
+			"attack" : 164,
+			"defense" : 164
+		}
+	},
+	{
+		"dex" : 43,
+		"name" : "Oddish",
+		"base" : {
+			"stamina" : 90,
+			"attack" : 134,
+			"defense" : 130
+		}
+	},
+	{
+		"dex" : 44,
+		"name" : "Gloom",
+		"base" : {
+			"stamina" : 120,
+			"attack" : 162,
+			"defense" : 158
+		}
+	},
+	{
+		"dex" : 45,
+		"name" : "Vileplume",
+		"base" : {
+			"stamina" : 150,
+			"attack" : 202,
+			"defense" : 190
+		}
+	},
+	{
+		"dex" : 46,
+		"name" : "Paras",
+		"base" : {
+			"stamina" : 70,
+			"attack" : 122,
+			"defense" : 120
+		}
+	},
+	{
+		"dex" : 47,
+		"name" : "Parasect",
+		"base" : {
+			"stamina" : 120,
+			"attack" : 162,
+			"defense" : 170
+		}
+	},
+	{
+		"dex" : 48,
+		"name" : "Venonat",
+		"base" : {
+			"stamina" : 120,
+			"attack" : 108,
+			"defense" : 118
+		}
+	},
+	{
+		"dex" : 49,
+		"name" : "Venomoth",
+		"base" : {
+			"stamina" : 140,
+			"attack" : 172,
+			"defense" : 154
+		}
+	},
+	{
+		"dex" : 50,
+		"name" : "Diglett",
+		"base" : {
+			"stamina" : 20,
+			"attack" : 108,
+			"defense" : 86
+		}
+	},
+	{
+		"dex" : 51,
+		"name" : "Dugtrio",
+		"base" : {
+			"stamina" : 70,
+			"attack" : 148,
+			"defense" : 140
+		}
+	},
+	{
+		"dex" : 52,
+		"name" : "Meowth",
+		"base" : {
+			"stamina" : 80,
+			"attack" : 104,
+			"defense" : 94
+		}
+	},
+	{
+		"dex" : 53,
+		"name" : "Persian",
+		"base" : {
+			"stamina" : 130,
+			"attack" : 156,
+			"defense" : 146
+		}
+	},
+	{
 		"dex" : 74,
 		"name" : "Geodude",
 		"base" : {
@@ -393,12 +591,120 @@ var pkmnList = [
 		}
 	},
 	{
+		"dex" : 75,
+		"name" : "Graveler",
+		"base" : {
+			"stamina" : 110,
+			"attack" : 142,
+			"defense" : 156
+		}
+	},
+	{
+		"dex" : 76,
+		"name" : "Golem",
+		"base" : {
+			"stamina" : 160,
+			"attack" : 176,
+			"defense" : 198
+		}
+	},
+	{
 		"dex" : 102,
 		"name" : "Exeggcute",
 		"base" : {
 			"stamina" : 120,
 			"attack" : 110,
 			"defense" : 132
+		}
+	},
+	{
+		"dex" : 103,
+		"name" : "Exeggutor",
+		"base" : {
+			"stamina" : 190,
+			"attack" : 232,
+			"defense" : 164
+		}
+	},
+	{
+		"dex" : 120,
+		"name" : "Staryu",
+		"base" : {
+			"stamina" : 60,
+			"attack" : 130,
+			"defense" : 128
+		}
+	},
+	{
+		"dex" : 121,
+		"name" : "Starmie",
+		"base" : {
+			"stamina" : 120,
+			"attack" : 194,
+			"defense" : 192
+		}
+	},
+	{
+		"dex" : 122,
+		"name" : "Mr. Mime",
+		"base" : {
+			"stamina" : 80,
+			"attack" : 154,
+			"defense" : 196
+		}
+	},
+	{
+		"dex" : 123,
+		"name" : "Scyther",
+		"base" : {
+			"stamina" : 140,
+			"attack" : 176,
+			"defense" : 180
+		}
+	},
+	{
+		"dex" : 133,
+		"name" : "Eevee",
+		"base" : {
+			"stamina" : 110,
+			"attack" : 114,
+			"defense" : 128
+		}
+	},
+	{
+		"dex" : 134,
+		"name" : "Vaporeon",
+		"base" : {
+			"stamina" : 260,
+			"attack" : 186,
+			"defense" : 168
+		}
+	},
+	{
+		"dex" : 135,
+		"name" : "Jolteon",
+		"base" : {
+			"stamina" : 130,
+			"attack" : 192,
+			"defense" : 174
+		}
+	},
+	{
+		"dex" : 136,
+		"name" : "Flareon",
+		"base" : {
+			"stamina" : 130,
+			"attack" : 238,
+			"defense" : 178
+		}
+	},
+	{
+		"dex" : 143,
+		"name" : "Snorlax",
+		"base" : {
+			"stamina" : 320,
+			"attack" : 180,
+			"defense" : 180
 		}
 	},
 ]
