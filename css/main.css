@@ -34,6 +34,16 @@
 	width: 100%;
 }
 
+.pkmn-form > .row > .col-md-4 {
+	padding: 0;
+}
+
+.pkmn-form > .row > .col-md-4 > p{
+	font-size: 10px;
+	margin: 0;
+	text-align: center;
+}
+
 .pkmn-form > .row > .col-md-3 > input{
 	width: 100%;
 	border-radius: 50px;
@@ -42,8 +52,20 @@
 	border-width: 1px;
 }
 
-#level-list{
+.pkmn-form > .row > .col-md-3 > select{
 	width: 100%;
+}
+
+.pkmn-form > .row > .col-md-2{
+	padding: 0;
+}
+
+.pkmn-form > .row > .col-md-2 > input{
+	width: 100%;
+	border-radius: 50px;
+	font-size: 10px;
+	padding-left: 5px;
+	border-width: 1px;
 }
 
 #calc-btn{

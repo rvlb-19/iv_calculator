@@ -3,9 +3,17 @@
 2. Especifique as seguintes informações:
     * *Hit Points* (HP);
     * *Combat Points* (CP);
-    * Quantidade de *Stardust* para usar o *Power-Up* (*Stardust*);
+    * Quantidade de *Stardust* para usar o *Power-Up* (*Dust*);
     * Nível atual do *Pokémon* (*Level*);
 3. Ao clicar no botão **Calcular**, será exibida uma listagem com as combinações de *Individual Values* (IVs) de *Stamina*, *Attack* e *Defense* possíveis para o Pokémon em questão.
+
+# Atualizações
+O _input_ de _Stardust_ agora é realizado através de uma lista de opções, visando simplificar o trabalho do usuário em preencher o campo.
+
+Foi adicionado um sistema de filtragem de combinações, bastando ao usuário informar os valores mínimo e máximo de cada IV que devem ser exibidos na listagem de resultados possíveis.
+
+# Em breve...
+Será adicionado um sistema para acompanhar as combinações de IVs à medida que novos valores de HP, CP e _Level_ são inseridos, visando afunilar as combinações que efetivamente são possíveis à medida que o _Pokémon_ vai sendo fortalecido.
 
 # Ajuda
 #### Sobre os IVs

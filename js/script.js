@@ -722,6 +722,41 @@ function calculateCP(base,iv,cpm){
 	return Math.max(10, Math.floor(atk*Math.sqrt(def*sta)/10));
 }
 
+function setRangeIVs() {
+	var range = {
+		"stamina":{"min":0,"max":15},
+		"attack":{"min":0,"max":15},
+		"defense":{"min":0,"max":15}
+	};
+	var ivRange = [0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15];
+	var minStamina = parseInt(document.getElementById('pkmn-min-sta').value);
+	if(ivRange.indexOf(minStamina) != -1) range["stamina"]["min"] = minStamina;
+	var maxStamina = parseInt(document.getElementById('pkmn-max-sta').value);
+	if(ivRange.indexOf(maxStamina) != -1) range["stamina"]["max"] = maxStamina;
+	var minAttack = parseInt(document.getElementById('pkmn-min-atk').value);
+	if(ivRange.indexOf(minAttack) != -1) range["attack"]["min"] = minAttack;
+	var maxAttack = parseInt(document.getElementById('pkmn-max-atk').value);
+	if(ivRange.indexOf(maxAttack) != -1) range["attack"]["max"] = maxAttack;
+	var minDefense = parseInt(document.getElementById('pkmn-min-def').value);
+	if(ivRange.indexOf(minDefense) != -1) range["defense"]["min"] = minDefense;
+	var maxDefense = parseInt(document.getElementById('pkmn-max-def').value);
+	if(ivRange.indexOf(maxDefense) != -1) range["defense"]["max"] = maxDefense;
+	return range;
+}
+
+function combinationInRange(comb,range) {
+	if(range["stamina"]["min"] > comb["stamina"] || range["stamina"]["max"] < comb["stamina"]){
+		return false;
+	}
+	if(range["attack"]["min"] > comb["attack"] || range["attack"]["max"] < comb["attack"]){
+		return false;
+	}
+	if(range["defense"]["min"] > comb["defense"] || range["defense"]["max"] < comb["defense"]){
+		return false;
+	}
+	return true;
+}
+
 function calculate() {
 	results.innerHTML="";
 	pkmn = pkmnList[document.getElementById('pkmn-list').selectedIndex-1];
@@ -730,7 +765,13 @@ function calculate() {
 	lvls = document.getElementById('level-list');
 	cpm = lvlToCpm[lvls.options[lvls.selectedIndex].innerHTML]
 	if(pkmn != null && hp != null && cp != null && cpm != null) {
-		var combs=[];
+		var combs=[], filterCombs=[];
+		var range = setRangeIVs();
+		/*
+			Calcula-se todas as combinações possíveis (sem aplicar o filtro),
+			pois dejesa-se implementar futuramente um tracking de combinações,
+			que seria prejudicado caso o filtro fosse modificado à cada query.
+		*/
 		for(var s=0 ; s<=15 ; s++) {
 			if(hp==calculateHP(pkmn["base"],{"stamina" : s},cpm)) {
 				for(var a=0 ; a<=15 ; a++) {
@@ -738,16 +779,24 @@ function calculate() {
 						var ivs={"stamina" : s, "attack" : a, "defense" : d};
 						if(cp==calculateCP(pkmn["base"],ivs,cpm)){
 							combs.push(ivs);
+							if(combinationInRange(ivs,range)) {
+								filterCombs.push(ivs);
+							}
 						}
 					}
 				}
 			}
 		}
 		var p = document.createElement("p");
-		p.innerHTML = "<strong> COMBINAÇÕES POSSÍVEIS: </strong>"+combs.length;
+		p.innerHTML = "<strong> TOTAL DE COMBINAÇÕES POSSÍVEIS: </strong>"+combs.length;
 		results.appendChild(p);
-		for(var i=0 ; i<combs.length ; i++) {
-			var comb = JSON.stringify(combs[i],null,2);
+		if(combs.length != filterCombs.length) {
+			var p = document.createElement("p");
+			p.innerHTML = "<strong> COMBINAÇÕES POSSÍVEIS COM O FILTRO: </strong>"+filterCombs.length;
+			results.appendChild(p);
+		}
+		for(var i=0 ; i<filterCombs.length ; i++) {
+			var comb = JSON.stringify(filterCombs[i],null,2);
 			var p = document.createElement("p");
 			p.innerHTML = (((comb.replace(/"/g,"")).replace('{',"")).replace('}',"")).toUpperCase();
 			results.appendChild(p);
@@ -774,16 +823,29 @@ window.onload = function() {
 	}
 
 	var dust = document.getElementById('pkmn-dust');
+	var dustValues = Object.keys(dustToLvl)
+	for(var i=0 ; i < dustValues.length ; i++) {
+		var opt = document.createElement('option');
+		opt.value = i+1;
+		opt.innerHTML = dustValues[i];
+		dust.appendChild(opt);
+	}
 	dust.addEventListener("change", function() {
 		sel = document.getElementById('level-list');
-		lvls = dustToLvl[dust.value];
-		while(sel.length > 1) sel.remove(1);
-		if(lvls != null) {
+		lvls = dustToLvl[dust.options[dust.selectedIndex].innerHTML];
+		if(lvls == null) {
+			while(sel.length > 1) sel.remove(1);
+		} else if(sel.options.length == 1) {
 			for(var i=0 ; i < lvls.length ; i++) {
 				var opt = document.createElement('option');
 				opt.value = i+1;
 				opt.innerHTML = lvls[i];
 				sel.appendChild(opt);
+			}
+		} else {
+			for(var i=0 ; i < lvls.length ; i++) {
+				var opt = sel.options[i+1]
+				opt.innerHTML = lvls[i];
 			}
 		}
 	});
