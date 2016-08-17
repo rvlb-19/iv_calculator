@@ -790,11 +790,9 @@ function calculate() {
 		var p = document.createElement("p");
 		p.innerHTML = "<strong> TOTAL DE COMBINAÇÕES POSSÍVEIS: </strong>"+combs.length;
 		results.appendChild(p);
-		if(combs.length != filterCombs.length) {
-			var p = document.createElement("p");
-			p.innerHTML = "<strong> COMBINAÇÕES POSSÍVEIS COM O FILTRO: </strong>"+filterCombs.length;
-			results.appendChild(p);
-		}
+		var p = document.createElement("p");
+		p.innerHTML = "<strong> COMBINAÇÕES POSSÍVEIS COM O FILTRO: </strong>"+filterCombs.length;
+		results.appendChild(p);
 		for(var i=0 ; i<filterCombs.length ; i++) {
 			var comb = JSON.stringify(filterCombs[i],null,2);
 			var p = document.createElement("p");
