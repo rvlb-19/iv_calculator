@@ -26,7 +26,7 @@
 	margin: 0;
 }
 
-.pkmn-form > .row > .col-xs-3{
+.pkmn-form > .row > .col-md-3{
 	padding: 0;
 }
 
@@ -44,7 +44,7 @@
 	text-align: center;
 }
 
-.pkmn-form > .row > .col-xs-3 > input{
+.pkmn-form > .row > .col-md-3 > input{
 	width: 100%;
 	border-radius: 50px;
 	font-size: 10px;
@@ -52,7 +52,7 @@
 	border-width: 1px;
 }
 
-.pkmn-form > .row > .col-xs-3 > select{
+.pkmn-form > .row > .col-md-3 > select{
 	width: 100%;
 }
 

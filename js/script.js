@@ -582,6 +582,186 @@ var pkmnList = [
 		}
 	},
 	{
+		"dex" : 54,
+		"name" : "Psyduck",
+		"base" : {
+			"stamina" : 100,
+			"attack" : 132,
+			"defense" : 112
+		}
+	},
+	{
+		"dex" : 55,
+		"name" : "Golduck",
+		"base" : {
+			"stamina" : 160,
+			"attack" : 194,
+			"defense" : 176
+		}
+	},
+	{
+		"dex" : 56,
+		"name" : "Mankey",
+		"base" : {
+			"stamina" : 80,
+			"attack" : 112,
+			"defense" : 96
+		}
+	},
+	{
+		"dex" : 57,
+		"name" : "Primeape",
+		"base" : {
+			"stamina" : 130,
+			"attack" : 178,
+			"defense" : 150
+		}
+	},
+	{
+		"dex" : 58,
+		"name" : "Growlithe",
+		"base" : {
+			"stamina" : 110,
+			"attack" : 156,
+			"defense" : 110
+		}
+	},
+	{
+		"dex" : 59,
+		"name" : "Arcanine",
+		"base" : {
+			"stamina" : 180,
+			"attack" : 230,
+			"defense" : 180
+		}
+	},
+	{
+		"dex" : 60,
+		"name" : "Poliwag",
+		"base" : {
+			"stamina" : 80,
+			"attack" : 108,
+			"defense" : 98
+		}
+	},
+	{
+		"dex" : 61,
+		"name" : "Poliwhirl",
+		"base" : {
+			"stamina" : 130,
+			"attack" : 132,
+			"defense" : 132
+		}
+	},
+	{
+		"dex" : 62,
+		"name" : "Poliwrath",
+		"base" : {
+			"stamina" : 180,
+			"attack" : 180,
+			"defense" : 202
+		}
+	},
+	{
+		"dex" : 63,
+		"name" : "Abra",
+		"base" : {
+			"stamina" : 50,
+			"attack" : 110,
+			"defense" : 76
+		}
+	},
+	{
+		"dex" : 64,
+		"name" : "Kadabra",
+		"base" : {
+			"stamina" : 80,
+			"attack" : 150,
+			"defense" : 112
+		}
+	},
+	{
+		"dex" : 65,
+		"name" : "Alakazam",
+		"base" : {
+			"stamina" : 110,
+			"attack" : 186,
+			"defense" : 152
+		}
+	},
+	{
+		"dex" : 66,
+		"name" : "Machop",
+		"base" : {
+			"stamina" : 140,
+			"attack" : 118,
+			"defense" : 96
+		}
+	},
+	{
+		"dex" : 67,
+		"name" : "Machoke",
+		"base" : {
+			"stamina" : 160,
+			"attack" : 154,
+			"defense" : 144
+		}
+	},
+	{
+		"dex" : 68,
+		"name" : "Machamp",
+		"base" : {
+			"stamina" : 180,
+			"attack" : 198,
+			"defense" : 180
+		}
+	},
+	{
+		"dex" : 69,
+		"name" : "Bellsprout",
+		"base" : {
+			"stamina" : 100,
+			"attack" : 158,
+			"defense" : 78
+		}
+	},
+	{
+		"dex" : 70,
+		"name" : "Weepinbell",
+		"base" : {
+			"stamina" : 130,
+			"attack" : 190,
+			"defense" : 110
+		}
+	},
+	{
+		"dex" : 71,
+		"name" : "Victreebel",
+		"base" : {
+			"stamina" : 160,
+			"attack" : 222,
+			"defense" : 152
+		}
+	},
+	{
+		"dex" : 72,
+		"name" : "Tentacool",
+		"base" : {
+			"stamina" : 80,
+			"attack" : 106,
+			"defense" : 136
+		}
+	},
+	{
+		"dex" : 73,
+		"name" : "Tentacruel",
+		"base" : {
+			"stamina" : 160,
+			"attack" : 170,
+			"defense" : 196
+		}
+	},
+	{
 		"dex" : 74,
 		"name" : "Geodude",
 		"base" : {
@@ -606,6 +786,69 @@ var pkmnList = [
 			"stamina" : 160,
 			"attack" : 176,
 			"defense" : 198
+		}
+	},
+	{
+		"dex" : 77,
+		"name" : "Ponyta",
+		"base" : {
+			"stamina" : 100,
+			"attack" : 168,
+			"defense" : 138
+		}
+	},
+	{
+		"dex" : 78,
+		"name" : "Rapidash",
+		"base" : {
+			"stamina" : 130,
+			"attack" : 200,
+			"defense" : 170
+		}
+	},
+	{
+		"dex" : 79,
+		"name" : "Slowpoke",
+		"base" : {
+			"stamina" : 180,
+			"attack" : 110,
+			"defense" : 110
+		}
+	},
+	{
+		"dex" : 80,
+		"name" : "Slowbro",
+		"base" : {
+			"stamina" : 190,
+			"attack" : 184,
+			"defense" : 198
+		}
+	},
+	{
+		"dex" : 81,
+		"name" : "Magnemite",
+		"base" : {
+			"stamina" : 50,
+			"attack" : 128,
+			"defense" : 138
+		}
+	},
+	{
+		"dex" : 82,
+		"name" : "Magneton",
+		"base" : {
+			"stamina" : 100,
+			"attack" : 186,
+			"defense" : 180
+		}
+	},
+	{
+		"dex" : 83,
+		"name" : "Farfetch'd",
+		"base" : {
+			"stamina" : 104,
+			"attack" : 138,
+			"defense" : 132
 		}
 	},
 	{
@@ -699,12 +942,93 @@ var pkmnList = [
 		}
 	},
 	{
+		"dex" : 137,
+		"name" : "Porygon",
+		"base" : {
+			"stamina" : 130,
+			"attack" : 156,
+			"defense" : 158
+		}
+	},
+	{
+		"dex" : 138,
+		"name" : "Omanyte",
+		"base" : {
+			"stamina" : 70,
+			"attack" : 132,
+			"defense" : 160
+		}
+	},
+	{
+		"dex" : 139,
+		"name" : "Omastar",
+		"base" : {
+			"stamina" : 140,
+			"attack" : 180,
+			"defense" : 202
+		}
+	},
+	{
+		"dex" : 140,
+		"name" : "Kabuto",
+		"base" : {
+			"stamina" : 60,
+			"attack" : 148,
+			"defense" : 142
+		}
+	},
+	{
+		"dex" : 141,
+		"name" : "Kabutops",
+		"base" : {
+			"stamina" : 120,
+			"attack" : 190,
+			"defense" : 190
+		}
+	},
+	{
+		"dex" : 142,
+		"name" : "Aerodactyl",
+		"base" : {
+			"stamina" : 160,
+			"attack" : 182,
+			"defense" : 162
+		}
+	},
+	{
 		"dex" : 143,
 		"name" : "Snorlax",
 		"base" : {
 			"stamina" : 320,
 			"attack" : 180,
 			"defense" : 180
+		}
+	},
+	{
+		"dex" : 147,
+		"name" : "Dratini",
+		"base" : {
+			"stamina" : 82,
+			"attack" : 128,
+			"defense" : 110
+		}
+	},
+	{
+		"dex" : 148,
+		"name" : "Dragonair",
+		"base" : {
+			"stamina" : 122,
+			"attack" : 170,
+			"defense" : 152
+		}
+	},
+	{
+		"dex" : 149,
+		"name" : "Dragonite",
+		"base" : {
+			"stamina" : 182,
+			"attack" : 250,
+			"defense" : 212
 		}
 	},
 ]
