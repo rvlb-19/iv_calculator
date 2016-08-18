@@ -1112,6 +1112,14 @@ function calculate() {
 			}
 		}
 		var p = document.createElement("p");
+		p.innerHTML = "<strong>RANGE DE HP E CP PARA O POKÉMON SELECIONADO</strong>"
+		results.appendChild(p);
+		var p = document.createElement("p");
+		p.innerHTML = pkmn["name"] + " Level " + lvls.options[lvls.selectedIndex].innerHTML + ": ";
+		p.innerHTML += "HP[" + calculateHP(pkmn["base"],{"stamina":0},cpm) + "," + calculateHP(pkmn["base"],{"stamina":15},cpm) + "] - ";
+		p.innerHTML += "CP[" + calculateCP(pkmn["base"],{"stamina":0,"attack":0,"defense":0},cpm) + "," + calculateCP(pkmn["base"],{"stamina":15,"attack":15,"defense":15},cpm) + "]";
+		results.appendChild(p);
+		var p = document.createElement("p");
 		p.innerHTML = "<strong> TOTAL DE COMBINAÇÕES POSSÍVEIS: </strong>"+combs.length;
 		results.appendChild(p);
 		var p = document.createElement("p");
