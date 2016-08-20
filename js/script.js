@@ -852,6 +852,168 @@ var pkmnList = [
 		}
 	},
 	{
+		"dex" : 84,
+		"name" : "Doduo",
+		"base" : {
+			"stamina" : 70,
+			"attack" : 126,
+			"defense" : 96
+		}
+	},
+	{
+		"dex" : 85,
+		"name" : "Dodrio",
+		"base" : {
+			"stamina" : 120,
+			"attack" : 182,
+			"defense" : 150
+		}
+	},
+	{
+		"dex" : 86,
+		"name" : "Seel",
+		"base" : {
+			"stamina" : 130,
+			"attack" : 104,
+			"defense" : 138
+		}
+	},
+	{
+		"dex" : 87,
+		"name" : "Dewgong",
+		"base" : {
+			"stamina" : 180,
+			"attack" : 156,
+			"defense" : 192
+		}
+	},
+	{
+		"dex" : 88,
+		"name" : "Grimer",
+		"base" : {
+			"stamina" : 160,
+			"attack" : 124,
+			"defense" : 110
+		}
+	},
+	{
+		"dex" : 89,
+		"name" : "Muk",
+		"base" : {
+			"stamina" : 210,
+			"attack" : 180,
+			"defense" : 188
+		}
+	},
+	{
+		"dex" : 90,
+		"name" : "Shellder",
+		"base" : {
+			"stamina" : 60,
+			"attack" : 120,
+			"defense" : 112
+		}
+	},
+	{
+		"dex" : 91,
+		"name" : "Cloyster",
+		"base" : {
+			"stamina" : 100,
+			"attack" : 196,
+			"defense" : 196
+		}
+	},
+	{
+		"dex" : 92,
+		"name" : "Gastly",
+		"base" : {
+			"stamina" : 60,
+			"attack" : 136,
+			"defense" : 82
+		}
+	},
+	{
+		"dex" : 93,
+		"name" : "Haunter",
+		"base" : {
+			"stamina" : 90,
+			"attack" : 172,
+			"defense" : 118
+		}
+	},
+	{
+		"dex" : 94,
+		"name" : "Gengar",
+		"base" : {
+			"stamina" : 120,
+			"attack" : 204,
+			"defense" : 156
+		}
+	},
+	{
+		"dex" : 95,
+		"name" : "Onix",
+		"base" : {
+			"stamina" : 70,
+			"attack" : 90,
+			"defense" : 186
+		}
+	},
+	{
+		"dex" : 96,
+		"name" : "Drowzee",
+		"base" : {
+			"stamina" : 120,
+			"attack" : 104,
+			"defense" : 140
+		}
+	},
+	{
+		"dex" : 97,
+		"name" : "Hypno",
+		"base" : {
+			"stamina" : 170,
+			"attack" : 162,
+			"defense" : 196
+		}
+	},
+	{
+		"dex" : 98,
+		"name" : "Krabby",
+		"base" : {
+			"stamina" : 60,
+			"attack" : 116,
+			"defense" : 110
+		}
+	},
+	{
+		"dex" : 99,
+		"name" : "Kingler",
+		"base" : {
+			"stamina" : 110,
+			"attack" : 178,
+			"defense" : 168
+		}
+	},
+	{
+		"dex" : 100,
+		"name" : "Voltorb",
+		"base" : {
+			"stamina" : 80,
+			"attack" : 102,
+			"defense" : 124
+		}
+	},
+	{
+		"dex" : 101,
+		"name" : "Electrode",
+		"base" : {
+			"stamina" : 120,
+			"attack" : 150,
+			"defense" : 174
+		}
+	},
+	{
 		"dex" : 102,
 		"name" : "Exeggcute",
 		"base" : {
@@ -867,6 +1029,150 @@ var pkmnList = [
 			"stamina" : 190,
 			"attack" : 232,
 			"defense" : 164
+		}
+	},
+	{
+		"dex" : 104,
+		"name" : "Cubone",
+		"base" : {
+			"stamina" : 100,
+			"attack" : 102,
+			"defense" : 150
+		}
+	},
+	{
+		"dex" : 105,
+		"name" : "Marowak",
+		"base" : {
+			"stamina" : 120,
+			"attack" : 140,
+			"defense" : 202
+		}
+	},
+	{
+		"dex" : 106,
+		"name" : "Hitmonlee",
+		"base" : {
+			"stamina" : 100,
+			"attack" : 148,
+			"defense" : 172
+		}
+	},
+	{
+		"dex" : 107,
+		"name" : "Hitmonchan",
+		"base" : {
+			"stamina" : 100,
+			"attack" : 138,
+			"defense" : 204
+		}
+	},
+	{
+		"dex" : 108,
+		"name" : "Lickitung",
+		"base" : {
+			"stamina" : 180,
+			"attack" : 126,
+			"defense" : 160
+		}
+	},
+	{
+		"dex" : 109,
+		"name" : "Koffing",
+		"base" : {
+			"stamina" : 80,
+			"attack" : 136,
+			"defense" : 142
+		}
+	},
+	{
+		"dex" : 110,
+		"name" : "Weezing",
+		"base" : {
+			"stamina" : 130,
+			"attack" : 190,
+			"defense" : 198
+		}
+	},
+	{
+		"dex" : 111,
+		"name" : "Rhyhorn",
+		"base" : {
+			"stamina" : 160,
+			"attack" : 110,
+			"defense" : 116
+		}
+	},
+	{
+		"dex" : 112,
+		"name" : "Rhydon",
+		"base" : {
+			"stamina" : 210,
+			"attack" : 116,
+			"defense" : 160
+		}
+	},
+	{
+		"dex" : 113,
+		"name" : "Chansey",
+		"base" : {
+			"stamina" : 500,
+			"attack" : 40,
+			"defense" : 60
+		}
+	},
+	{
+		"dex" : 114,
+		"name" : "Tangela",
+		"base" : {
+			"stamina" : 130,
+			"attack" : 164,
+			"defense" : 152
+		}
+	},
+	{
+		"dex" : 115,
+		"name" : "Kangaskhan",
+		"base" : {
+			"stamina" : 210,
+			"attack" : 142,
+			"defense" : 178
+		}
+	},
+	{
+		"dex" : 116,
+		"name" : "Horsea",
+		"base" : {
+			"stamina" : 60,
+			"attack" : 122,
+			"defense" : 100
+		}
+	},
+	{
+		"dex" : 117,
+		"name" : "Seadra",
+		"base" : {
+			"stamina" : 110,
+			"attack" : 176,
+			"defense" : 150
+		}
+	},
+	{
+		"dex" : 118,
+		"name" : "Goldeen",
+		"base" : {
+			"stamina" : 90,
+			"attack" : 112,
+			"defense" : 126
+		}
+	},
+	{
+		"dex" : 119,
+		"name" : "Seaking",
+		"base" : {
+			"stamina" : 160,
+			"attack" : 172,
+			"defense" : 160
 		}
 	},
 	{
@@ -903,6 +1209,87 @@ var pkmnList = [
 			"stamina" : 140,
 			"attack" : 176,
 			"defense" : 180
+		}
+	},
+	{
+		"dex" : 124,
+		"name" : "Jynx",
+		"base" : {
+			"stamina" : 130,
+			"attack" : 172,
+			"defense" : 134
+		}
+	},
+	{
+		"dex" : 125,
+		"name" : "Electabuzz",
+		"base" : {
+			"stamina" : 130,
+			"attack" : 198,
+			"defense" : 160
+		}
+	},
+	{
+		"dex" : 126,
+		"name" : "Magmar",
+		"base" : {
+			"stamina" : 130,
+			"attack" : 214,
+			"defense" : 158
+		}
+	},
+	{
+		"dex" : 127,
+		"name" : "Pinsir",
+		"base" : {
+			"stamina" : 130,
+			"attack" : 184,
+			"defense" : 186
+		}
+	},
+	{
+		"dex" : 128,
+		"name" : "Tauros",
+		"base" : {
+			"stamina" : 150,
+			"attack" : 148,
+			"defense" : 184
+		}
+	},
+	{
+		"dex" : 129,
+		"name" : "Magikarp",
+		"base" : {
+			"stamina" : 40,
+			"attack" : 42,
+			"defense" : 84
+		}
+	},
+	{
+		"dex" : 130,
+		"name" : "Gyarados",
+		"base" : {
+			"stamina" : 190,
+			"attack" : 192,
+			"defense" : 196
+		}
+	},
+	{
+		"dex" : 131,
+		"name" : "Lapras",
+		"base" : {
+			"stamina" : 260,
+			"attack" : 186,
+			"defense" : 190
+		}
+	},
+	{
+		"dex" : 132,
+		"name" : "Ditto",
+		"base" : {
+			"stamina" : 96,
+			"attack" : 110,
+			"defense" : 110
 		}
 	},
 	{
@@ -1005,6 +1392,33 @@ var pkmnList = [
 		}
 	},
 	{
+		"dex" : 144,
+		"name" : "Articuno",
+		"base" : {
+			"stamina" : 180,
+			"attack" : 198,
+			"defense" : 242
+		}
+	},
+	{
+		"dex" : 145,
+		"name" : "Zapdos",
+		"base" : {
+			"stamina" : 180,
+			"attack" : 232,
+			"defense" : 194
+		}
+	},
+	{
+		"dex" : 146,
+		"name" : "Moltres",
+		"base" : {
+			"stamina" : 180,
+			"attack" : 242,
+			"defense" : 194
+		}
+	},
+	{
 		"dex" : 147,
 		"name" : "Dratini",
 		"base" : {
@@ -1029,6 +1443,24 @@ var pkmnList = [
 			"stamina" : 182,
 			"attack" : 250,
 			"defense" : 212
+		}
+	},
+	{
+		"dex" : 150,
+		"name" : "Mewtwo",
+		"base" : {
+			"stamina" : 212,
+			"attack" : 284,
+			"defense" : 202
+		}
+	},
+	{
+		"dex" : 151,
+		"name" : "Mew",
+		"base" : {
+			"stamina" : 200,
+			"attack" : 220,
+			"defense" : 220
 		}
 	},
 ]
@@ -1148,7 +1580,7 @@ window.onload = function() {
 		var pkmn = pkmnList[i];
 		var opt = document.createElement('option');
 		opt.value = pkmn["dex"];
-		opt.innerHTML = ("#" + pkmn["dex"] + " - " + pkmn["name"]);
+		opt.innerHTML = (pkmn["name"] + " - #" + pkmn["dex"]);
 		sel.appendChild(opt);
 	}
 
