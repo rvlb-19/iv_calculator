@@ -1505,9 +1505,22 @@ function combinationInRange(comb,range) {
 }
 
 function validCombination(comb,bestStats) {
-	if(bestStats.length == 1) return true;
-	else if(bestStats.length == 2) return (comb[bestStats[0]]==comb[bestStats[1]]);
-	else if(bestStats.length == 3) {
+	if(bestStats.length == 1) {
+		var stats = ["stamina","attack","defense"];
+		for(var i=0 ; i<stats.length ; i++) {
+			if(bestStats.indexOf(stats[i]) == -1) {
+				if(comb[stats[i]] >= comb[bestStats[0]]) return false;
+			}
+		}
+		return true;
+	} else if(bestStats.length == 2) {
+		var missingStat;
+		for(var i=0 ; i<stats.length ; i++) {
+			if(bestStats.indexOf(stats[i]) == -1) missingStat=stats[i];
+		}
+		if(missingStat >= comb[bestStats[0]] || missingStat >= comb[bestStats[1]]) return false;
+		return (comb[bestStats[0]]==comb[bestStats[1]]);
+	} else if(bestStats.length == 3) {
 		return ((comb[bestStats[0]]==comb[bestStats[1]]) && (comb[bestStats[1]]==comb[bestStats[2]]));
 	}
 	return false;
@@ -1517,6 +1530,7 @@ function validOverall(comb,min,max) {
 	var sum = comb["stamina"]+comb["attack"]+comb["defense"];
 	return ((sum >= min) && (sum <= max));
 }
+
 
 function calculate() {
 	results.innerHTML="";
@@ -1723,7 +1737,7 @@ window.onload = function() {
 				overall.appendChild(opt);
 				var opt = document.createElement('option');
 				opt.value = 3;
-				opt.innerHTML = "Overall, your is really strong!"
+				opt.innerHTML = "Overall, your Pokémon is really strong!"
 				overall.appendChild(opt);
 				var opt = document.createElement('option');
 				opt.value = 4;
