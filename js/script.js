@@ -1519,7 +1519,7 @@ function validCombination(comb,bestStats) {
 		for(var i=0 ; i<stats.length ; i++) {
 			if(bestStats.indexOf(stats[i]) == -1) missingStat=stats[i];
 		}
-		if(missingStat >= comb[bestStats[0]] || missingStat >= comb[bestStats[1]]) return false;
+		if(comb[missingStat] >= comb[bestStats[0]] || comb[missingStat] >= comb[bestStats[1]]) return false;
 		return (comb[bestStats[0]]==comb[bestStats[1]]);
 	} else if(bestStats.length == 3) {
 		return ((comb[bestStats[0]]==comb[bestStats[1]]) && (comb[bestStats[1]]==comb[bestStats[2]]));
