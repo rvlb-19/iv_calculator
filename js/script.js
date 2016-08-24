@@ -1515,6 +1515,7 @@ function validCombination(comb,bestStats) {
 		return true;
 	} else if(bestStats.length == 2) {
 		var missingStat;
+		var stats = ["stamina","attack","defense"];
 		for(var i=0 ; i<stats.length ; i++) {
 			if(bestStats.indexOf(stats[i]) == -1) missingStat=stats[i];
 		}
@@ -1531,6 +1532,10 @@ function validOverall(comb,min,max) {
 	return ((sum >= min) && (sum <= max));
 }
 
+function rating(comb) {
+	var sum = comb["stamina"]+comb["attack"]+comb["defense"];
+	return ((100.0*sum) / 45).toFixed(2);
+}
 
 function calculate() {
 	results.innerHTML="";
@@ -1611,7 +1616,8 @@ function calculate() {
 		for(var i=0 ; i<combs.length ; i++) {
 			var comb = JSON.stringify(combs[i],null,2);
 			comb = (comb.replace("lvl","Level")).replace("ivs","IVs");
-			comb = ((comb.replace("stamina","Stamina")).replace("attack","Attack")).replace("defense","Defense");
+			comb = ((comb.replace("stamina","HP")).replace("attack","Attack")).replace("defense","Defense");
+			comb += ", Rating: " + rating(combs[i].ivs) + "%"
 			var p = document.createElement("p");
 			p.innerHTML = ((comb.replace(/"/g,"")).replace('{',"")).replace('}',"");
 			results.appendChild(p);

@@ -38,11 +38,11 @@
 	width: 100%;
 }
 
-.pkmn-form > .row > .col-md-12{
+.pkmn-form > .row > .col-xs-12{
 	padding: 0;
 }
 
-.pkmn-form > .row > .col-md-12 > select{
+.pkmn-form > .row > .col-xs-12 > select{
 	width: 100%;
 }
 
