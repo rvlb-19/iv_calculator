@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8"/>
+		<title>
+			IV CALCULATOR
+		</title>
+		<link rel="stylesheet" type="text/css" href="css/main.css">
+		<link rel="stylesheet" type="text/css" href="css/bootstrap.css">
+		<link rel="stylesheet" type="text/css" href="css/bootstrap-responsive.css">
+		<link rel="stylesheet" type="text/css" href="css/bootstrap-theme.css">
+	</head>
+	<body>
+		<div class="container-fluid" id="container-site">
+			<div id="header">
+				<h3>IV CALCULATOR</h3>
+				<p>Versão 2.0</p>
+			</div>
+			<div class="disclaimer">
+				<p>
+					<a href="https://github.com/rvlb-19/iv_calculator/blob/master/README.md" target="_blank">
+						Clique aqui para ler o guia de uso.
+					</a>
+				</p>
+			</div>
+			<div class="pkmn-form">
+				<div class="row">
+					<div class="col-xs-12">
+						<select id="pkmn-list">
+							<option value="0">Escolha um Pokémon</option>
+						</select>
+					</div>
+				</div>
+				<div class="separator"></div>
+				<div class="row">
+					<div class="col-md-4">
+						<input type="text" id="pkmn-hp" placeholder="HP">
+					</div>
+					<div class="col-md-4">
+						<input type="text" id="pkmn-cp" placeholder="CP">
+					</div>
+					<div class="col-md-4">
+						<select id="pkmn-dust">
+							<option value="0">Dust</option>
+						</select>
+					</div>
+				</div>
+				<div class="separator"></div>
+				<div class="row">
+					<div class="col-md-6">
+						<select id="team-list">
+							<option value="0">Team</option>
+							<option value="1">Team Mystic</option>
+							<option value="2">Team Valor</option>
+							<option value="3">Team Instinct</option>
+						</select>
+					</div>
+					<div class="col-md-6">
+						<select id="overall-list">
+							<option value="0">Overall Analysis</option>
+						</select>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-md-6">
+						<select id="stat-list">
+							<option value="0">Best Stat(s)</option>
+							<option value="1">HP</option>
+							<option value="2">Attack</option>
+							<option value="3">Defense</option>
+							<option value="4">HP+Attack</option>
+							<option value="5">Attack+Defense</option>
+							<option value="6">HP+Defense</option>
+							<option value="7">HP+Attack+Defense</option>
+						</select>
+					</div>
+					<div class="col-md-6">
+						<select id="stat-analysis-list">
+							<option value="0">Best Stat Analysis</option>
+						</select>
+					</div>
+				</div>
+			</div>
+			<div class="separator"></div>
+			<input type="button" id="calc-btn" value="Calcular">
+		</div>
+		<div class="separator"></div>
+		<div id="results"></div>
+		<div class="disclaimer">
+			<p>Pokémon and all respective names are ™ and © of Nintendo (1996-2016)</p>
+		</div>
+	</body>
+	<script type="text/javascript" src="js/script.js"></script>
+</html>
