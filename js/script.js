@@ -1578,7 +1578,7 @@ function calculate() {
 			results.appendChild(p);
 			for(var s=ivRange["stamina"]["min"] ; s<=ivRange["stamina"]["max"] ; s++) {
 				if(hp==calculateHP(pkmn["base"],{"stamina":s},cpm)) {
-					for(var a=ivRange["attack"]["min"] ; a<=ivRange["defense"]["max"] ; a++) {
+					for(var a=ivRange["attack"]["min"] ; a<=ivRange["attack"]["max"] ; a++) {
 						for(var d=ivRange["defense"]["min"] ; d<=ivRange["defense"]["max"] ; d++) {
 							var ivs = {"stamina":s,"attack":a,"defense":d};
 							if(cp==calculateCP(pkmn["base"],ivs,cpm)){
