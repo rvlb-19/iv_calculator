@@ -1478,25 +1478,16 @@ function calculateCP(base,iv,cpm){
 	return Math.max(10, Math.floor(atk*Math.sqrt(def*sta)/10));
 }
 
-function setRangeIVs() {
+function setRangeIVs(best,min,max) {
 	var range = {
 		"stamina":{"min":0,"max":15},
 		"attack":{"min":0,"max":15},
 		"defense":{"min":0,"max":15}
 	};
-	var ivRange = [0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15];
-	var minStamina = parseInt(document.getElementById('pkmn-min-sta').value);
-	if(ivRange.indexOf(minStamina) != -1) range["stamina"]["min"] = minStamina;
-	var maxStamina = parseInt(document.getElementById('pkmn-max-sta').value);
-	if(ivRange.indexOf(maxStamina) != -1) range["stamina"]["max"] = maxStamina;
-	var minAttack = parseInt(document.getElementById('pkmn-min-atk').value);
-	if(ivRange.indexOf(minAttack) != -1) range["attack"]["min"] = minAttack;
-	var maxAttack = parseInt(document.getElementById('pkmn-max-atk').value);
-	if(ivRange.indexOf(maxAttack) != -1) range["attack"]["max"] = maxAttack;
-	var minDefense = parseInt(document.getElementById('pkmn-min-def').value);
-	if(ivRange.indexOf(minDefense) != -1) range["defense"]["min"] = minDefense;
-	var maxDefense = parseInt(document.getElementById('pkmn-max-def').value);
-	if(ivRange.indexOf(maxDefense) != -1) range["defense"]["max"] = maxDefense;
+	for(var i=0 ; i < best.length ; i++) {
+		range[best[i]].min = min;
+		range[best[i]].max = max;
+	}
 	return range;
 }
 
@@ -1513,30 +1504,80 @@ function combinationInRange(comb,range) {
 	return true;
 }
 
+function validCombination(comb,bestStats) {
+	if(bestStats.length == 1) return true;
+	else if(bestStats.length == 2) return (comb[bestStats[0]]==comb[bestStats[1]]);
+	else if(bestStats.length == 3) {
+		return ((comb[bestStats[0]]==comb[bestStats[1]]) && (comb[bestStats[1]]==comb[bestStats[2]]));
+	}
+	return false;
+}
+
 function calculate() {
 	results.innerHTML="";
 	pkmn = pkmnList[document.getElementById('pkmn-list').selectedIndex-1];
 	hp = document.getElementById('pkmn-hp').value;
 	cp = document.getElementById('pkmn-cp').value;
-	lvls = document.getElementById('level-list');
-	cpm = lvlToCpm[lvls.options[lvls.selectedIndex].innerHTML]
-	if(pkmn != null && hp != null && cp != null && cpm != null) {
-		var combs=[], filterCombs=[];
-		var range = setRangeIVs();
-		/*
-			Calcula-se todas as combinações possíveis (sem aplicar o filtro),
-			pois dejesa-se implementar futuramente um tracking de combinações,
-			que seria prejudicado caso o filtro fosse modificado à cada query.
-		*/
-		for(var s=0 ; s<=15 ; s++) {
-			if(hp==calculateHP(pkmn["base"],{"stamina" : s},cpm)) {
-				for(var a=0 ; a<=15 ; a++) {
-					for(var d=0 ; d<=15 ; d++) {
-						var ivs={"stamina" : s, "attack" : a, "defense" : d};
-						if(cp==calculateCP(pkmn["base"],ivs,cpm)){
-							combs.push(ivs);
-							if(combinationInRange(ivs,range)) {
-								filterCombs.push(ivs);
+	dust = document.getElementById('pkmn-dust');
+	lvls = dustToLvl[dust.options[dust.selectedIndex].innerHTML];
+	overall = document.getElementById('overall-list').selectedIndex;
+	statAnalysis = document.getElementById('stat-analysis-list').selectedIndex;
+	bestStats = document.getElementById('stat-list').selectedIndex;
+	var validAppraisal = (overall != 0 && statAnalysis != 0 && bestStats != 0)
+	if(pkmn != null && hp != null && cp != null && lvls != null && validAppraisal) {
+		var ivSumMin, ivSumMax;
+		switch(overall) {
+			case 1:
+				ivSumMin = 0; ivSumMax = 22;
+				break;
+			case 2:
+				ivSumMin = 23; ivSumMax = 29;
+				break;
+			case 3:
+				ivSumMin = 30; ivSumMax = 36;
+				break;
+			case 4:
+				ivSumMin = 37; ivSumMax = 45;
+				break;
+		}
+		var bestStatMin, bestStatMax;
+		switch(statAnalysis) {
+			case 1:
+				bestStatMin = 0; bestStatMax = 7;
+				break;
+			case 2:
+				bestStatMin = 8; bestStatMax = 12;
+				break;
+			case 3:
+				bestStatMin = 13; bestStatMax = 14;
+				break;
+			case 4:
+				bestStatMin = 15; bestStatMax = 15;
+				break;
+		}
+		var best = [], staminaIndex = [1,4,6,7], attackIndex = [2,4,5,7], defenseIndex = [3,5,6,7];
+		if(staminaIndex.indexOf(bestStats) != -1) best.push("stamina");
+		if(attackIndex.indexOf(bestStats) != -1) best.push("attack");
+		if(defenseIndex.indexOf(bestStats) != -1) best.push("defense");
+		var ivRange = setRangeIVs(best,bestStatMin,bestStatMax);
+		var combs = []
+		var p = document.createElement("p");
+		p.innerHTML = "<strong>RANGE DE HP E CP PARA O POKÉMON SELECIONADO</strong>"
+		results.appendChild(p);
+		for(var i=0; i<lvls.length ; i++) {
+			var cpm = lvlToCpm[lvls[i]];
+			var p = document.createElement("p");
+			p.innerHTML = pkmn["name"] + " Level " + lvls[i] + ": ";
+			p.innerHTML += "HP[" + calculateHP(pkmn["base"],{"stamina":0},cpm) + "," + calculateHP(pkmn["base"],{"stamina":15},cpm) + "] - ";
+			p.innerHTML += "CP[" + calculateCP(pkmn["base"],{"stamina":0,"attack":0,"defense":0},cpm) + "," + calculateCP(pkmn["base"],{"stamina":15,"attack":15,"defense":15},cpm) + "]";
+			results.appendChild(p);
+			for(var s=ivRange["stamina"]["min"] ; s<=ivRange["stamina"]["max"] ; s++) {
+				if(hp==calculateHP(pkmn["base"],{"stamina":s},cpm)) {
+					for(var a=ivRange["attack"]["min"] ; a<=ivRange["defense"]["max"] ; a++) {
+						for(var d=ivRange["defense"]["min"] ; d<=ivRange["defense"]["max"] ; d++) {
+							var ivs = {"stamina":s,"attack":a,"defense":d};
+							if(cp==calculateCP(pkmn["base"],ivs,cpm)){
+								if(validCombination(ivs,best)) combs.push({"lvl":lvls[i],"ivs":ivs});
 							}
 						}
 					}
@@ -1544,23 +1585,14 @@ function calculate() {
 			}
 		}
 		var p = document.createElement("p");
-		p.innerHTML = "<strong>RANGE DE HP E CP PARA O POKÉMON SELECIONADO</strong>"
+		p.innerHTML = "<strong>COMBINAÇÕES POSSÍVEIS: </strong>"+combs.length;
 		results.appendChild(p);
-		var p = document.createElement("p");
-		p.innerHTML = pkmn["name"] + " Level " + lvls.options[lvls.selectedIndex].innerHTML + ": ";
-		p.innerHTML += "HP[" + calculateHP(pkmn["base"],{"stamina":0},cpm) + "," + calculateHP(pkmn["base"],{"stamina":15},cpm) + "] - ";
-		p.innerHTML += "CP[" + calculateCP(pkmn["base"],{"stamina":0,"attack":0,"defense":0},cpm) + "," + calculateCP(pkmn["base"],{"stamina":15,"attack":15,"defense":15},cpm) + "]";
-		results.appendChild(p);
-		var p = document.createElement("p");
-		p.innerHTML = "<strong> TOTAL DE COMBINAÇÕES POSSÍVEIS: </strong>"+combs.length;
-		results.appendChild(p);
-		var p = document.createElement("p");
-		p.innerHTML = "<strong> COMBINAÇÕES POSSÍVEIS COM O FILTRO: </strong>"+filterCombs.length;
-		results.appendChild(p);
-		for(var i=0 ; i<filterCombs.length ; i++) {
-			var comb = JSON.stringify(filterCombs[i],null,2);
+		for(var i=0 ; i<combs.length ; i++) {
+			var comb = JSON.stringify(combs[i],null,2);
+			comb = (comb.replace("lvl","Level")).replace("ivs","IVs");
+			comb = ((comb.replace("stamina","Stamina")).replace("attack","Attack")).replace("defense","Defense");
 			var p = document.createElement("p");
-			p.innerHTML = (((comb.replace(/"/g,"")).replace('{',"")).replace('}',"")).toUpperCase();
+			p.innerHTML = ((comb.replace(/"/g,"")).replace('{',"")).replace('}',"");
 			results.appendChild(p);
 		}
 	} else {
@@ -1592,23 +1624,124 @@ window.onload = function() {
 		opt.innerHTML = dustValues[i];
 		dust.appendChild(opt);
 	}
-	dust.addEventListener("change", function() {
-		sel = document.getElementById('level-list');
-		lvls = dustToLvl[dust.options[dust.selectedIndex].innerHTML];
-		if(lvls == null) {
-			while(sel.length > 1) sel.remove(1);
-		} else if(sel.options.length == 1) {
-			for(var i=0 ; i < lvls.length ; i++) {
+
+	var team = document.getElementById('team-list');
+	team.addEventListener("change", function() {
+		var overall = document.getElementById('overall-list');
+		var statAnalysis = document.getElementById('stat-analysis-list');
+		while(overall.length > 1) overall.remove(1);
+		while(statAnalysis.length > 1) statAnalysis.remove(1);
+		switch(team.selectedIndex) {
+			case 1:
+				//overall
 				var opt = document.createElement('option');
-				opt.value = i+1;
-				opt.innerHTML = lvls[i];
-				sel.appendChild(opt);
-			}
-		} else {
-			for(var i=0 ; i < lvls.length ; i++) {
-				var opt = sel.options[i+1]
-				opt.innerHTML = lvls[i];
-			}
+				opt.value = 1;
+				opt.innerHTML = "Overall, your Pokémon is not likely to make much headway in battle."
+				overall.appendChild(opt);
+				var opt = document.createElement('option');
+				opt.value = 2;
+				opt.innerHTML = "Overall, your Pokémon is above average."
+				overall.appendChild(opt);
+				var opt = document.createElement('option');
+				opt.value = 3;
+				opt.innerHTML = "Overall, your Pokémon has certainly caught my attention."
+				overall.appendChild(opt);
+				var opt = document.createElement('option');
+				opt.value = 4;
+				opt.innerHTML = "Overall, your Pokémon is a wonder! What a breathtaking Pokémon!"
+				overall.appendChild(opt);
+				//stat
+				var opt = document.createElement('option');
+				opt.value = 1;
+				opt.innerHTML = "Its stats are not out of the norm, in my opinion."
+				statAnalysis.appendChild(opt);
+				var opt = document.createElement('option');
+				opt.value = 2;
+				opt.innerHTML = "Its stats are noticeably trending to the positive."
+				statAnalysis.appendChild(opt);
+				var opt = document.createElement('option');
+				opt.value = 3;
+				opt.innerHTML = "I am certainly impressed by its stats, I must say."
+				statAnalysis.appendChild(opt);
+				var opt = document.createElement('option');
+				opt.value = 4;
+				opt.innerHTML = "Its stats exceed my calculations. It's incredible!"
+				statAnalysis.appendChild(opt);
+				break;
+			case 2:
+				//overall
+				var opt = document.createElement('option');
+				opt.value = 1;
+				opt.innerHTML = "Overall, your Pokémon may not be great in battle, but I still like it!"
+				overall.appendChild(opt);
+				var opt = document.createElement('option');
+				opt.value = 2;
+				opt.innerHTML = "Overall, your Pokémon is a decent Pokémon."
+				overall.appendChild(opt);
+				var opt = document.createElement('option');
+				opt.value = 3;
+				opt.innerHTML = "Overall, your Pokémon is a strong Pokémon. You should be proud!"
+				overall.appendChild(opt);
+				var opt = document.createElement('option');
+				opt.value = 4;
+				opt.innerHTML = "Overall, your Pokémon simply amazes me. It can accomplish anything!"
+				overall.appendChild(opt);
+				//stat
+				var opt = document.createElement('option');
+				opt.value = 1;
+				opt.innerHTML = "Its stats don't point to greatness in battle."
+				statAnalysis.appendChild(opt);
+				var opt = document.createElement('option');
+				opt.value = 2;
+				opt.innerHTML = "Its stats indicate that in battle, it'll get the job done."
+				statAnalysis.appendChild(opt);
+				var opt = document.createElement('option');
+				opt.value = 3;
+				opt.innerHTML = "It's got excellent stats! How exciting!"
+				statAnalysis.appendChild(opt);
+				var opt = document.createElement('option');
+				opt.value = 4;
+				opt.innerHTML = "I'm blown away by its stats. WOW!"
+				statAnalysis.appendChild(opt);
+				break;
+			case 3:
+				//overall
+				var opt = document.createElement('option');
+				opt.value = 1;
+				opt.innerHTML = "Overall, your Pokémon has room for improvement as far as battling goes."
+				overall.appendChild(opt);
+				var opt = document.createElement('option');
+				opt.value = 2;
+				opt.innerHTML = "Overall, your Pokémon is pretty decent!"
+				overall.appendChild(opt);
+				var opt = document.createElement('option');
+				opt.value = 3;
+				opt.innerHTML = "Overall, your is really strong!"
+				overall.appendChild(opt);
+				var opt = document.createElement('option');
+				opt.value = 4;
+				opt.innerHTML = "Overall, your Pokémon looks like it can really battle with the best of them!"
+				overall.appendChild(opt);
+				//stat
+				var opt = document.createElement('option');
+				opt.value = 1;
+				opt.innerHTML = "Its stats are all right, but kinda basic, as far as I can see."
+				statAnalysis.appendChild(opt);
+				var opt = document.createElement('option');
+				opt.value = 2;
+				opt.innerHTML = "It's definitely got some good stats. Definitely!"
+				statAnalysis.appendChild(opt);
+				var opt = document.createElement('option');
+				opt.value = 3;
+				opt.innerHTML = "Its stats are really strong! Impressive."
+				statAnalysis.appendChild(opt);
+				var opt = document.createElement('option');
+				opt.value = 4;
+				opt.innerHTML = "Its stats are the best I've ever seen! No doubt about it!"
+				statAnalysis.appendChild(opt);
+				break;
+			default:
+				break;
 		}
 	});
 }

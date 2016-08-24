@@ -13,7 +13,8 @@
 	<body>
 		<div class="container-fluid" id="container-site">
 			<div id="header">
-				<p>IV CALCULATOR</p>
+				<h3>IV CALCULATOR</h3>
+				<p>Versão 2.0</p>
 			</div>
 			<div class="disclaimer">
 				<p>
@@ -23,58 +24,61 @@
 				</p>
 			</div>
 			<div class="pkmn-form">
-				<select id="pkmn-list">
-					<option value="0">Escolha um Pokémon</option>
-				</select>
+				<div class="row">
+					<div class="col-md-12">
+						<select id="pkmn-list">
+							<option value="0">Escolha um Pokémon</option>
+						</select>
+					</div>
+				</div>
 				<div class="separator"></div>
 				<div class="row">
-					<div class="col-md-3">
+					<div class="col-md-4">
 						<input type="text" id="pkmn-hp" placeholder="HP">
 					</div>
-					<div class="col-md-3">
+					<div class="col-md-4">
 						<input type="text" id="pkmn-cp" placeholder="CP">
 					</div>
-					<div class="col-md-3">
+					<div class="col-md-4">
 						<select id="pkmn-dust">
 							<option value="0">Dust</option>
 						</select>
 					</div>
-					<div class="col-md-3">
-						<select id="level-list">
-							<option value="0">Level</option>
+				</div>
+				<div class="separator"></div>
+				<div class="row">
+					<div class="col-md-6">
+						<select id="team-list">
+							<option value="0">Team</option>
+							<option value="1">Team Mystic</option>
+							<option value="2">Team Valor</option>
+							<option value="3">Team Instinct</option>
+						</select>
+					</div>
+					<div class="col-md-6">
+						<select id="overall-list">
+							<option value="0">Overall Analysis</option>
 						</select>
 					</div>
 				</div>
 				<div class="separator"></div>
 				<div class="row">
-					<div class="col-xs-4">
-						<p>Filtro de Stamina</p>
+					<div class="col-md-6">
+						<select id="stat-list">
+							<option value="0">Best Stat(s)</option>
+							<option value="1">Stamina</option>
+							<option value="2">Attack</option>
+							<option value="3">Defense</option>
+							<option value="4">Stamina+Attack</option>
+							<option value="5">Attack+Defense</option>
+							<option value="6">Stamina+Defense</option>
+							<option value="7">Stamina+Attack+Defense</option>
+						</select>
 					</div>
-					<div class="col-xs-4">
-						<p>Filtro de Attack</p>
-					</div>
-					<div class="col-xs-4">
-						<p>Filtro de Defense</p>
-					</div>
-				</div>
-				<div class="row">
-					<div class="col-xs-2">
-						<input type="text" id="pkmn-min-sta" placeholder="Min IV">
-					</div>
-					<div class="col-xs-2">
-						<input type="text" id="pkmn-max-sta" placeholder="Max IV">
-					</div>
-					<div class="col-xs-2">
-						<input type="text" id="pkmn-min-atk" placeholder="Min IV">
-					</div>
-					<div class="col-xs-2">
-						<input type="text" id="pkmn-max-atk" placeholder="Max IV">
-					</div>
-					<div class="col-xs-2">
-						<input type="text" id="pkmn-min-def" placeholder="Min IV">
-					</div>
-					<div class="col-xs-2">
-						<input type="text" id="pkmn-max-def" placeholder="Max IV">
+					<div class="col-md-6">
+						<select id="stat-analysis-list">
+							<option value="0">Best Stat Analysis</option>
+						</select>
 					</div>
 				</div>
 			</div>
