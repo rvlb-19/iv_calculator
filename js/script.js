@@ -1513,6 +1513,11 @@ function validCombination(comb,bestStats) {
 	return false;
 }
 
+function validOverall(comb,min,max) {
+	var sum = comb["stamina"]+comb["attack"]+comb["defense"];
+	return ((sum >= min) && (sum <= max));
+}
+
 function calculate() {
 	results.innerHTML="";
 	pkmn = pkmnList[document.getElementById('pkmn-list').selectedIndex-1];
@@ -1577,7 +1582,9 @@ function calculate() {
 						for(var d=ivRange["defense"]["min"] ; d<=ivRange["defense"]["max"] ; d++) {
 							var ivs = {"stamina":s,"attack":a,"defense":d};
 							if(cp==calculateCP(pkmn["base"],ivs,cpm)){
-								if(validCombination(ivs,best)) combs.push({"lvl":lvls[i],"ivs":ivs});
+								if(validCombination(ivs,best) && validOverall(ivs,ivSumMin,ivSumMax)) {
+									combs.push({"lvl":lvls[i],"ivs":ivs});
+								}
 							}
 						}
 					}
